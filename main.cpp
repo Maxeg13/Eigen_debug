@@ -1,20 +1,34 @@
 //#include <iostream>
-//#include <vector>
+#include <vector>
 //#include <Eigen/Eigenvalues>
 //#include <Eigen/Dense>
 //using namespace Eigen;
-//using namespace std;
+using namespace std;
 //typedef std::complex<double> cd;
 
 
-#include "preeig.h"
+#include "pca.h"
 int main(int argc, char **argv)
 {
 PCA myPCA(20,4);
+std::vector<float> v;
+v.resize(4);
+for (int i=0; i<20; i++)
+{
+
+    for(int j=0;j<4;j++)
+        v[j]=rand()%20;
+
+    myPCA.updateBuf(v);
+}
+
 myPCA.centr();
 myPCA.getCor();
-myPCA.algorythm();
+myPCA.algorithm();
 myPCA.sort();
+//v=myPCA.proect();
+
+cout<<v[0]<<endl;
 //    MatrixXd MH = MatrixXd::Zero(8,3);
 //    MatrixXd M=MH.transpose()*MH;
 //    cout  << endl << MH << endl << endl;

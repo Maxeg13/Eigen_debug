@@ -3,19 +3,20 @@
 #include <Eigen/Dense>
 using namespace Eigen;
 using namespace std;
-//typedef std::complex<double> cd;
-#include "eig.h"
+
+//#include "eig.h"
 
 //#include "preeig.h"
 int main(void)
 {
-//PCA myPCA(20,4);
-//myPCA.centr();
-//myPCA.getCor();
 MatrixXd MH = MatrixXd::Random(4,4);
-eig(MH.transpose()*MH);
-cout<<getEigVals()<<endl<<endl;
-cout<<getEigVecs()<<endl<<endl;
+MatrixXd A=MatrixXd::Random(1,4);
+MH.row(0)=A.row(0);
+    
+//MatrixXd MH = MatrixXd::Random(4,4);
+//eig(MH.transpose()*MH);
+//cout<<getEigVals()<<endl<<endl;
+//cout<<getEigVecs()<<endl<<endl;
 
 //    MatrixXd MH = MatrixXd::Zero(8,3);
 //    MatrixXd M=MH.transpose()*MH;
